@@ -1,0 +1,21 @@
+# 基于 Llama3.2 1B 的本地智能邮件分类与回复助手
+# Windows + Python 3.10，完全离线
+
+# UI
+PyQt5>=5.15.0
+
+# 本地大模型（三选一或组合：优先 transformers 离线）
+# 方式一：transformers 本地加载
+torch>=2.0.0
+transformers>=4.36.0
+accelerate>=0.25.0
+sentencepiece>=0.1.99
+
+# 方式二：ollama 本地调用（可选，与 transformers 二选一或并存）
+# requests>=2.28.0
+
+# 方式三：llama-cpp-python（可选）
+# llama-cpp-python>=0.2.0
+
+# 打包
+pyinstaller>=6.0.0

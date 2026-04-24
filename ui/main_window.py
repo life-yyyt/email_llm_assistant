@@ -242,8 +242,46 @@ class MainWindow(QMainWindow):
         root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         return os.path.join(root, "models")
 
+    def _lora_root_dir(self) -> str:
+        """返回项目内 lora 目录路径。"""
+        root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        return os.path.join(root, "lora")
+
+    @staticmethod
+    def _looks_like_model_dir(path: str) -> bool:
+        return os.path.isdir(path) and os.path.isfile(os.path.join(path, "config.json"))
+
+    def _collect_local_model_dirs(self) -> List[tuple]:
+        """
+        收集项目内可直接加载的模型目录。
+        - models/ 下的完整模型目录
+        - lora/ 下已经 merge 完成的完整模型目录
+        """
+        items = []
+        seen = set()
+
+        def add_from_base(base_dir: str, label_prefix: str = ""):
+            if not os.path.isdir(base_dir):
+                return
+            try:
+                for name in sorted(os.listdir(base_dir)):
+                    path = os.path.join(base_dir, name)
+                    if not self._looks_like_model_dir(path):
+                        continue
+                    norm = os.path.normpath(path)
+                    if norm in seen:
+                        continue
+                    seen.add(norm)
+                    items.append((f"{label_prefix}{name}", path))
+            except Exception:
+                pass
+
+        add_from_base(self._models_root_dir())
+        add_from_base(self._lora_root_dir(), "LoRA合并：")
+        return items
+
     def _init_model_combo(self):
-        """初始化模型下拉框：扫描 models 子目录，以及当前环境变量指定的模型。"""
+        """初始化模型下拉框：扫描项目内可用模型，以及当前环境变量指定的模型。"""
         self.model_combo.blockSignals(True)
         self.model_combo.clear()
 
@@ -254,18 +292,10 @@ class MainWindow(QMainWindow):
         env_path = (os.environ.get("LLAMA_MODEL_PATH") or "").strip()
         added_env = False
 
-        models_dir = self._models_root_dir()
-        if os.path.isdir(models_dir):
-            try:
-                for name in sorted(os.listdir(models_dir)):
-                    path = os.path.join(models_dir, name)
-                    if os.path.isdir(path):
-                        self.model_combo.addItem(f"{name}", path)
-                        if env_path and os.path.normpath(env_path) == os.path.normpath(path):
-                            # 若环境变量刚好指向此目录，后面直接选中
-                            added_env = True
-            except Exception:
-                pass
+        for label, path in self._collect_local_model_dirs():
+            self.model_combo.addItem(label, path)
+            if env_path and os.path.normpath(env_path) == os.path.normpath(path):
+                added_env = True
 
         if env_path and not added_env:
             # 单独给环境变量路径增加一项
@@ -691,7 +721,7 @@ class MainWindow(QMainWindow):
             return self._llm.polish_email(text, style=style, use_cache=False)
 
         self._worker = WorkerThread(run)
-        self._worker.finished_signal.connect(lambda r: self._on_text_gen_finished(r, self.reply_edit))
+        self._worker.finished_signal.connect(lambda r: self._on_polish_finished(r, text))
         self._worker.error_signal.connect(self._on_worker_error)
         self._worker.start()
 
@@ -700,6 +730,18 @@ class MainWindow(QMainWindow):
         self.status_label.setText("就绪")
         if result and target_edit:
             target_edit.setPlainText(result)
+        self._update_buttons_state()
+
+    def _on_polish_finished(self, result: str, source_text: str):
+        self.progress_bar.setVisible(False)
+        normalized_source = "".join((source_text or "").split())
+        normalized_result = "".join((result or "").split())
+        if result:
+            self.reply_edit.setPlainText(result)
+        if normalized_result and normalized_result != normalized_source:
+            self.status_label.setText("润色完成")
+        else:
+            self.status_label.setText("润色完成（改动较小）")
         self._update_buttons_state()
 
     def _do_send(self):

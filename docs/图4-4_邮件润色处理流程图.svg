@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <defs>
+    <style>
+      .title { font: 700 34px 'Microsoft YaHei', sans-serif; fill: #1f2937; }
+      .boxTitle { font: 700 22px 'Microsoft YaHei', sans-serif; fill: #111827; }
+      .boxText { font: 400 18px 'Microsoft YaHei', sans-serif; fill: #374151; }
+      .decision { font: 700 21px 'Microsoft YaHei', sans-serif; fill: #111827; }
+    </style>
+    <marker id="arrow6" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="1400" height="900" fill="#f8fafc"/>
+  <text x="700" y="70" text-anchor="middle" class="title">邮件润色处理流程图</text>
+
+  <rect x="480" y="115" rx="20" ry="20" width="440" height="85" fill="#ffffff" stroke="#60a5fa" stroke-width="3"/>
+  <text x="700" y="160" text-anchor="middle" class="boxTitle">输入待润色文本</text>
+  <text x="700" y="190" text-anchor="middle" class="boxText">读取回复草稿或用户手动输入文本</text>
+
+  <rect x="480" y="245" rx="20" ry="20" width="440" height="85" fill="#ffffff" stroke="#4ade80" stroke-width="3"/>
+  <text x="700" y="290" text-anchor="middle" class="boxTitle">选择润色风格</text>
+  <text x="700" y="320" text-anchor="middle" class="boxText">自然 / 正式 / 商务</text>
+
+  <rect x="480" y="375" rx="20" ry="20" width="440" height="85" fill="#ffffff" stroke="#fb923c" stroke-width="3"/>
+  <text x="700" y="420" text-anchor="middle" class="boxTitle">匹配规则映射</text>
+  <text x="700" y="450" text-anchor="middle" class="boxText">优先处理“收到、好的、谢谢”等常见短句</text>
+
+  <polygon points="700,510 860,615 700,720 540,615" fill="#fff6ea" stroke="#fb923c" stroke-width="3"/>
+  <text x="700" y="610" text-anchor="middle" class="decision">是否需要模型进一步润色？</text>
+  <text x="700" y="640" text-anchor="middle" class="boxText">短句走规则，长句或复杂文本进入模型改写</text>
+
+  <rect x="180" y="770" rx="20" ry="20" width="360" height="90" fill="#eefbf3" stroke="#4ade80" stroke-width="3"/>
+  <text x="360" y="815" text-anchor="middle" class="boxTitle">规则润色结果</text>
+  <text x="360" y="845" text-anchor="middle" class="boxText">突出稳定性和风格一致性</text>
+
+  <rect x="860" y="770" rx="20" ry="20" width="360" height="90" fill="#eef6ff" stroke="#60a5fa" stroke-width="3"/>
+  <text x="1040" y="815" text-anchor="middle" class="boxTitle">模型润色与清洗</text>
+  <text x="1040" y="845" text-anchor="middle" class="boxText">在保持原意基础上优化措辞和表达风格</text>
+
+  <line x1="700" y1="200" x2="700" y2="245" stroke="#64748b" stroke-width="4" marker-end="url(#arrow6)"/>
+  <line x1="700" y1="330" x2="700" y2="375" stroke="#64748b" stroke-width="4" marker-end="url(#arrow6)"/>
+  <line x1="700" y1="460" x2="700" y2="510" stroke="#64748b" stroke-width="4" marker-end="url(#arrow6)"/>
+  <line x1="620" y1="665" x2="420" y2="770" stroke="#64748b" stroke-width="4" marker-end="url(#arrow6)"/>
+  <line x1="780" y1="665" x2="980" y2="770" stroke="#64748b" stroke-width="4" marker-end="url(#arrow6)"/>
+</svg>

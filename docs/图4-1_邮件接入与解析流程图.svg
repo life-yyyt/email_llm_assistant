@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <defs>
+    <style>
+      .title { font: 700 34px 'Microsoft YaHei', sans-serif; fill: #1f2937; }
+      .boxTitle { font: 700 22px 'Microsoft YaHei', sans-serif; fill: #111827; }
+      .boxText { font: 400 18px 'Microsoft YaHei', sans-serif; fill: #374151; }
+    </style>
+    <marker id="arrow3" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="1400" height="900" fill="#f8fafc"/>
+  <text x="700" y="70" text-anchor="middle" class="title">邮件接入与解析流程图</text>
+
+  <g fill="#ffffff" stroke="#60a5fa" stroke-width="3">
+    <rect x="490" y="120" rx="20" ry="20" width="420" height="85"/>
+    <rect x="490" y="250" rx="20" ry="20" width="420" height="85"/>
+    <rect x="490" y="380" rx="20" ry="20" width="420" height="85"/>
+    <rect x="490" y="510" rx="20" ry="20" width="420" height="85"/>
+    <rect x="490" y="640" rx="20" ry="20" width="420" height="85"/>
+  </g>
+
+  <text x="700" y="165" text-anchor="middle" class="boxTitle">读取邮箱账号配置</text>
+  <text x="700" y="195" text-anchor="middle" class="boxText">获取邮箱地址、授权码、IMAP/SMTP 服务器信息</text>
+
+  <text x="700" y="295" text-anchor="middle" class="boxTitle">建立 IMAP 连接并拉取邮件</text>
+  <text x="700" y="325" text-anchor="middle" class="boxText">读取收件箱中的最新邮件内容</text>
+
+  <text x="700" y="425" text-anchor="middle" class="boxTitle">解析原始邮件</text>
+  <text x="700" y="455" text-anchor="middle" class="boxText">提取主题、发件人、时间、正文、附件与链接</text>
+
+  <text x="700" y="555" text-anchor="middle" class="boxTitle">清洗与结构化处理</text>
+  <text x="700" y="585" text-anchor="middle" class="boxText">优先提取纯文本正文，过滤无关标签和噪声</text>
+
+  <text x="700" y="685" text-anchor="middle" class="boxTitle">封装为统一邮件对象</text>
+  <text x="700" y="715" text-anchor="middle" class="boxText">供分类、回复、润色和界面展示模块使用</text>
+
+  <line x1="700" y1="205" x2="700" y2="250" stroke="#64748b" stroke-width="4" marker-end="url(#arrow3)"/>
+  <line x1="700" y1="335" x2="700" y2="380" stroke="#64748b" stroke-width="4" marker-end="url(#arrow3)"/>
+  <line x1="700" y1="465" x2="700" y2="510" stroke="#64748b" stroke-width="4" marker-end="url(#arrow3)"/>
+  <line x1="700" y1="595" x2="700" y2="640" stroke="#64748b" stroke-width="4" marker-end="url(#arrow3)"/>
+</svg>

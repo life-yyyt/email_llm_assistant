@@ -1,0 +1,142 @@
+[
+  {
+    "id": "normal_meeting_01",
+    "category": "会议确认",
+    "subject": "会议确认",
+    "body": "您好，请确认您明天下午三点是否方便参加项目讨论会。",
+    "expected": "正常邮件"
+  },
+  {
+    "id": "normal_attach_01",
+    "category": "附件查收",
+    "subject": "请查收附件",
+    "body": "进度报告已整理完毕，请查收附件并在方便时给我反馈。",
+    "expected": "正常邮件"
+  },
+  {
+    "id": "normal_work_01",
+    "category": "工作催办",
+    "subject": "问题处理",
+    "body": "系统这边还有一个报错没有解决，麻烦您今天内跟进处理，并在完成后同步结果。",
+    "expected": "正常邮件"
+  },
+  {
+    "id": "normal_thanks_01",
+    "category": "感谢支持",
+    "subject": "感谢支持",
+    "body": "感谢您这次的支持，项目推进顺利多了。",
+    "expected": "正常邮件"
+  },
+  {
+    "id": "normal_business_01",
+    "category": "商务沟通",
+    "subject": "报价沟通",
+    "body": "我们初步看过贵方提供的报价方案，整体思路没有问题，但当前报价略高。若方便，请再评估一下优惠空间。",
+    "expected": "正常邮件"
+  },
+  {
+    "id": "normal_greet_01",
+    "category": "问候",
+    "subject": "",
+    "body": "你好，晚上吃饭了吗？",
+    "expected": "正常邮件"
+  },
+  {
+    "id": "normal_greet_02",
+    "category": "问候",
+    "subject": "在吗",
+    "body": "在吗？看到邮件后回复我一下。",
+    "expected": "正常邮件"
+  },
+  {
+    "id": "normal_approve_01",
+    "category": "审批",
+    "subject": "报销审批",
+    "body": "报销流程已经提交，麻烦您有空审批一下。",
+    "expected": "正常邮件"
+  },
+  {
+    "id": "normal_private_01",
+    "category": "私人往来",
+    "subject": "你好",
+    "body": "最近怎么样？有空一起吃个饭。",
+    "expected": "正常邮件"
+  },
+  {
+    "id": "normal_doc_01",
+    "category": "文档反馈",
+    "subject": "初稿反馈",
+    "body": "请确认一下本周五前是否可以完成初稿，完成后发我一份。",
+    "expected": "正常邮件"
+  },
+  {
+    "id": "normal_link_01",
+    "category": "正常含链接邮件",
+    "subject": "会议资料",
+    "body": "会议资料已上传至 https://example.com/docs ，请查看后回复。",
+    "expected": "正常邮件"
+  },
+  {
+    "id": "normal_school_01",
+    "category": "学习通知",
+    "subject": "课程作业",
+    "body": "老师您好，课程作业我已经提交，烦请查收。",
+    "expected": "正常邮件"
+  },
+  {
+    "id": "spam_ad_01",
+    "category": "广告营销",
+    "subject": "<广告> 今日专享优惠",
+    "body": "点击链接立即领取优惠券，注册即可参与抽奖，退订请回复TD。",
+    "expected": "垃圾邮件"
+  },
+  {
+    "id": "spam_ad_02",
+    "category": "促销推送",
+    "subject": "限时优惠",
+    "body": "仅限今日，低至5折，立即抢购，点击链接查看活动详情。",
+    "expected": "垃圾邮件"
+  },
+  {
+    "id": "spam_ad_03",
+    "category": "英文营销",
+    "subject": "Limited offer just for you",
+    "body": "Click now to claim your discount and buy now before the deal ends.",
+    "expected": "垃圾邮件"
+  },
+  {
+    "id": "spam_ad_04",
+    "category": "订阅推送",
+    "subject": "News promo",
+    "body": "Subscribe today and click to receive exclusive promotion content. Unsubscribe anytime.",
+    "expected": "垃圾邮件"
+  },
+  {
+    "id": "spam_ad_05",
+    "category": "中奖诈骗",
+    "subject": "恭喜中奖",
+    "body": "您已获得幸运大奖，请点击下方链接填写信息领取奖品。",
+    "expected": "垃圾邮件"
+  },
+  {
+    "id": "spam_ad_06",
+    "category": "礼品卡诈骗",
+    "subject": "Apple Gift Card",
+    "body": "Claim your gift card now. Click here and register to receive your reward.",
+    "expected": "垃圾邮件"
+  },
+  {
+    "id": "spam_ad_07",
+    "category": "扫码领券",
+    "subject": "扫码领取福利",
+    "body": "扫码领取新人专享价，回复TD退订。",
+    "expected": "垃圾邮件"
+  },
+  {
+    "id": "spam_ad_08",
+    "category": "群发推广",
+    "subject": "推广合作",
+    "body": "我们有大量客户资源，点击链接立即注册即可免费获取推广方案。",
+    "expected": "垃圾邮件"
+  }
+]

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <defs>
+    <style>
+      .title { font: 700 34px 'Microsoft YaHei', sans-serif; fill: #1f2937; }
+      .layerTitle { font: 700 24px 'Microsoft YaHei', sans-serif; fill: #111827; }
+      .layerText { font: 400 18px 'Microsoft YaHei', sans-serif; fill: #374151; }
+      .tag { font: 700 18px 'Microsoft YaHei', sans-serif; fill: white; }
+      .arrowText { font: 700 18px 'Microsoft YaHei', sans-serif; fill: #64748b; }
+    </style>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#f8fafc"/>
+  <text x="700" y="70" text-anchor="middle" class="title">系统总体架构图</text>
+
+  <rect x="130" y="125" rx="24" ry="24" width="1140" height="125" fill="#eef6ff" stroke="#60a5fa" stroke-width="3"/>
+  <rect x="65" y="165" rx="16" ry="16" width="52" height="52" fill="#3b82f6"/>
+  <text x="91" y="198" text-anchor="middle" class="tag">UI</text>
+  <text x="170" y="180" class="layerTitle">用户界面层</text>
+  <text x="170" y="215" class="layerText">负责邮件展示、结果呈现与用户交互</text>
+  <text x="170" y="245" class="layerText">主窗口界面　|　邮件列表　|　邮件正文展示　|　回复编辑区　|　发送与操作按钮</text>
+
+  <rect x="130" y="300" rx="24" ry="24" width="1140" height="125" fill="#eefbf3" stroke="#4ade80" stroke-width="3"/>
+  <rect x="65" y="340" rx="16" ry="16" width="52" height="52" fill="#22c55e"/>
+  <text x="91" y="373" text-anchor="middle" class="tag">BL</text>
+  <text x="170" y="355" class="layerTitle">业务逻辑层</text>
+  <text x="170" y="390" class="layerText">负责分类、回复、润色、附件处理与任务调度</text>
+  <text x="170" y="420" class="layerText">邮件分类模块　|　自动回复模块　|　邮件润色模块　|　附件管理　|　账号切换与状态控制</text>
+
+  <rect x="130" y="475" rx="24" ry="24" width="1140" height="125" fill="#fff6ea" stroke="#fb923c" stroke-width="3"/>
+  <rect x="65" y="515" rx="16" ry="16" width="52" height="52" fill="#f59e0b"/>
+  <text x="91" y="548" text-anchor="middle" class="tag">LLM</text>
+  <text x="170" y="530" class="layerTitle">模型推理层</text>
+  <text x="170" y="565" class="layerText">负责邮件理解、文本生成与结果优化</text>
+  <text x="170" y="595" class="layerText">本地模型统一封装　|　Transformers 本地推理　|　Ollama 本地服务</text>
+  <text x="170" y="625" class="layerText">Prompt 优化　|　Few-shot 示例　|　规则增强　|　输出清洗与缓存</text>
+
+  <rect x="130" y="655" rx="24" ry="24" width="1140" height="125" fill="#fff1f7" stroke="#f472b6" stroke-width="3"/>
+  <rect x="65" y="695" rx="16" ry="16" width="52" height="52" fill="#ec4899"/>
+  <text x="91" y="728" text-anchor="middle" class="tag">DATA</text>
+  <text x="170" y="710" class="layerTitle">数据与邮件接入层</text>
+  <text x="170" y="745" class="layerText">负责邮箱配置、邮件收发、正文解析与本地存储</text>
+  <text x="170" y="775" class="layerText">账号配置管理　|　IMAP 邮件接收　|　SMTP 邮件发送　|　邮件解析模块　|　本地配置文件</text>
+
+  <line x1="700" y1="250" x2="700" y2="300" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="700" y1="425" x2="700" y2="475" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="700" y1="600" x2="700" y2="655" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <path d="M 220 700 C 80 690, 60 430, 130 360" fill="none" stroke="#94a3b8" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="60" y="575" transform="rotate(-90 60 575)" class="arrowText">邮件数据流</text>
+
+  <path d="M 1140 538 C 1260 538, 1290 430, 1260 360" fill="none" stroke="#94a3b8" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="1305" y="540" transform="rotate(90 1305 540)" class="arrowText">分类、回复、润色结果</text>
+</svg>

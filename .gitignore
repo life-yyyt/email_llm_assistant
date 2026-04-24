@@ -38,3 +38,7 @@ accounts.json
 # Model artifacts
 models/*/
 !models/README.md
+
+# Temporary thesis/work files
+_*.txt
+_*.ps1
